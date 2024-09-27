@@ -1,0 +1,134 @@
+<!-- <div class="position-fixed w-100" style="background-image: url('/public/output-onlinepngtools.png'); height: 100vh; background-repeat: no-repeat;background-size: cover;
+    background-position: center;"> -->
+
+<div class="background-container">
+  <div class="content">
+    <div class="d-flex justify-content-center">
+      <nav class="navbar w-75">
+        <div class="container-fluid">
+          <div class="d-flex fw-bold" *ngIf="tab==''">
+            <h5 class="px-2">Navbar</h5>
+            <div class="px-2">Pages</div>
+            <div class="px-2">Support</div>
+            <div class="px-2"><a (click)="onClickTab('contant')" style="cursor: pointer;">Contact</a></div>
+          </div>
+          <div class="d-flex fw-bold" *ngIf="tab=='contant'">
+            <button class="btn btn-primary" type="submit" (click)="onClickTab()">Back</button>
+          </div>
+          <div class="d-flex">
+            <div *ngIf="tab==''">
+              <button class="btn btn-primary" type="submit">Get Started a Project</button>
+            </div>
+            <div *ngIf="tab=='contant'">
+              <button class="btn btn-primary" type="submit" (click)="addTo()">Add</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="row" style="height: 480px" *ngIf="tab==''">
+      <div class="col-6 d-flex justify-content-end align-self-center">
+        <div style="width: 400px; margin-top: 150px;" class="gap-10">
+          <p style="color: #F64B4B;" class="fw-bold fs-20 mb-2">LET'S SHIFT YOUR BUSINESS</p>
+          <h2 class="mb-2">Shift your business fast with shade pro.</h2>
+          <p class="mb-2">
+            With lots of unique blocks, you can easily build a page without coding. Build your next consultancy website
+            within few minutes.
+          </p>
+          <button class="btn btn-primary" type="submit">Get Started a Project</button>
+        </div>
+      </div>
+      <div class="col-6 d-flex justify-content-start align-self-center">
+        <div style="width: 400px;" class="gap-10">
+          <div style="width: 107px;height: 109px; word-spacing: 7px;font-size: larger;" class="text-center">
+            <div>. . .</div>
+            <div style="line-height: 0;">. . . . .</div>
+            <div>. . . . . . .</div>
+            <div style="line-height: 0;">. . . . . . .</div>
+            <div>. . . . . . .</div>
+            <div style="line-height: 0;">. . . . . . .</div>
+            <div>. . . . .</div>
+            <div style="line-height: 0;">. . .</div>
+          </div>
+          <div style="margin-top:20px; margin-right: 20px;">
+            <img width="350px"
+              src="https://s3-alpha-sig.figma.com/img/ad3c/ac35/9a49841825f8984b6b92cb76f7e8b4dc?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UxcyS5e--3-1AVd6ZhkyuWVRk5e4HhCXzsrlsg~qVL-xB0dabP-c5dPgWB9DgnjZ~1ea8ENXGCB0MiFozukr2L4sDSl5Tait5gUlJOKt7CavgRa6jAPxfeG0Td3-o3xTp79mNcOlkkuo-bivQxU92GimMTFnUxDG77nW~obGYAm8Mahc7vKUxTZw0HaDXlxv9zLqcInahVTmtAUCtMCDrGWSFVdZLlCvcVI0EIGmED36yvfgPcuO-kaiXlBTXDabSUOZmgKisUGFsZRyEGXgS8KAwtYCofhD8uhiJfsj48XyW1MfXpB7Ul5drsSXAcOlqK4NBDSbl8lVWgGEGEptHQ__"
+              class="rounded-circle" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="height: 580px; overflow-y: auto;" *ngIf="tab!=''">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" width="5%">S No</th>
+            <th scope="col"  width="9%">First Name</th>
+            <th scope="col" width="9%">Last Name</th>
+            <th scope="col" width="10%">Email Id</th>
+            <th scope="col" width="9%">Age</th>
+            <th scope="col" width="9%">Gender</th>
+            <th scope="col" width="12%">Mobile Number</th>
+            <th scope="col" width="9%">Pan No</th>
+            <th scope="col" width="9%">Adhaar No</th>
+            <th scope="col" width="9%">Status</th>
+            <th scope="col" width="10%">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of tableData;let rowIndex=index">
+            <td>
+              <div>{{rowIndex+1}}</div>
+            </td>
+            <td>
+              <div *ngIf="editIndex!==rowIndex">{{data.first_name}}</div>
+              <input *ngIf="editIndex==rowIndex" class="form-control" [(ngModel)]="data['first_name']"/>
+            </td>
+            <td>
+              <div *ngIf="editIndex!==rowIndex">{{data.last_name}}</div>
+              <input *ngIf="editIndex==rowIndex" class="form-control" [(ngModel)]="data['last_name']"/>
+            </td>
+            <td>
+              <div *ngIf="editIndex!==rowIndex">{{data.emailId}}</div>
+              <input *ngIf="editIndex==rowIndex" class="form-control" [(ngModel)]="data['emailId']"/>
+            </td>
+            <td>
+              <div *ngIf="editIndex!==rowIndex">{{data.age}}</div>
+              <input *ngIf="editIndex>-1 && editIndex==rowIndex" type="number" class="form-control" [(ngModel)]="data['age']"/>
+            </td>
+            <td>
+              <div *ngIf="editIndex!==rowIndex">{{data.gender}}</div>
+              <input *ngIf="editIndex==rowIndex" class="form-control" [(ngModel)]="data['gender']"/>
+            </td>
+            <td>
+              <div *ngIf="editIndex!==rowIndex">{{data.mobilenumber}}</div>
+              <input *ngIf="editIndex==rowIndex" class="form-control" [(ngModel)]="data['mobilenumber']"/>
+            </td>
+            <td>
+              <div *ngIf="editIndex!==rowIndex">{{data.pan_no}}</div>
+              <input *ngIf="editIndex==rowIndex" class="form-control" [(ngModel)]="data['pan_no']"/>
+            </td>
+            <td>
+              <div *ngIf="editIndex!==rowIndex">{{data.adhaar_no}}</div>
+              <input *ngIf="editIndex==rowIndex" class="form-control" [(ngModel)]="data['adhaar_no']"/>
+            </td>
+            <td>
+              <div *ngIf="editIndex!==rowIndex">{{data.status}}</div>
+              <input *ngIf="editIndex==rowIndex" type="checkbox" [(ngModel)]="data['status']"/>
+            </td>
+            <td>
+              <div class="d-flex justify-content-between">
+                <div class="btn btn-primary" (click)="onSaveTo(rowIndex)">
+                  {{editIndex==rowIndex?'save':'edit'}}
+                </div>
+                <div class="btn btn-primary" (click)="deleteTo(data?.id||'',rowIndex)">
+                  delete
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

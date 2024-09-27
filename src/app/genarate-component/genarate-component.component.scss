@@ -1,0 +1,29 @@
+.background-container {
+    // position: relative;
+    // width: 100%;
+    height: 100vh;
+    background-image: url('https://s3-alpha-sig.figma.com/img/5c7c/1c2a/8a36a3db7f0fdeb25f04a053079380b3?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UW1y2yfvRg5Xt9JfCdDPjx4zO5IrkeF-6wpHx6c0NKapmXlRUDokh8~SI2NGqKMZI1UCf~ay2c-YUg6JqpJChVmMxWKA6hLFW6rdRPv1NNy2aSuLGe3~-bIAtLtoQ227o8gtyE0x0cokoj1RD7VvHRJoPA4f46UQokwezznqclU2Cb0LrbnkZddohFLHJGf9pQqu9aAzp4W3BXrl-l3fz4li9CFQr-TA8bg-qF6LmGMM3mFLY1meTdTWgZw1QopNxirfUxgBZzvnq3nFmJ1tql-Vz2O5U7r0knkMZ~y-S-0SF4S4eEBr4SGdY9MGgCylCQeco61ybo2zc2O9IXAu7Q__');
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Overlay to dim the background */
+  .background-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(247, 245, 245, 0.5); /* Adjust the 0.5 to increase/decrease the dim effect */
+    z-index: 1;
+  }
+
+  /* Content that goes on top of the background */
+  .content {
+    position: relative;
+    z-index: 2; /* Ensures content stays above the overlay */
+    // color: white;
+    text-align: center;
+    padding: 20px;
+  }
